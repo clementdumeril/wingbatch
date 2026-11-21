@@ -12,13 +12,17 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
         python: ["3.9", "3.11", "3.13"]
-        include:
+        exclude:
+          # ubuntu-latest (26.04) no longer ships Python 3.9; Windows and macOS still do.
           - os: ubuntu-latest
+            python: "3.9"
+        include:
+          - os: windows-latest
             python: "3.9"
             numpy: "numpy==1.22.4"
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: ${{ matrix.python }}
       - name: Install
