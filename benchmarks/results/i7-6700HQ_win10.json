@@ -1,0 +1,78 @@
+{
+ "machine": {
+  "cpu": "Intel(R) Core(TM) i7-6700HQ CPU @ 2.60GHz",
+  "os": "Windows 10",
+  "python": "3.11.9",
+  "numpy": "2.2.6",
+  "wingbatch": "0.1.0"
+ },
+ "repeat": 5,
+ "scalar": 1175.0104062240298,
+ "scalar_median": 746.7057232938093,
+ "rows": [
+  {
+   "n": 1,
+   "rk4": 209.61736445326932,
+   "rk4_median": 177.73161144718998,
+   "semi_implicit": 839.242164319423,
+   "semi_implicit_median": 769.1089104359139,
+   "speedup_vs_scalar": 0.17839617704058297
+  },
+  {
+   "n": 10,
+   "rk4": 1965.0171920600303,
+   "rk4_median": 1876.1314800552489,
+   "semi_implicit": 7613.066729098981,
+   "semi_implicit_median": 6426.733297594908,
+   "speedup_vs_scalar": 1.6723402462236374
+  },
+  {
+   "n": 100,
+   "rk4": 17208.207311703463,
+   "rk4_median": 14474.688112259499,
+   "semi_implicit": 42889.071704089496,
+   "semi_implicit_median": 35704.02434847438,
+   "speedup_vs_scalar": 14.645153115709949
+  },
+  {
+   "n": 1000,
+   "rk4": 98273.18293504092,
+   "rk4_median": 58488.755828969784,
+   "semi_implicit": 384400.7576604703,
+   "semi_implicit_median": 358098.53258888546,
+   "speedup_vs_scalar": 83.63601072338415
+  },
+  {
+   "n": 3000,
+   "rk4": 78611.0647684854,
+   "rk4_median": 75841.49935819901,
+   "semi_implicit": 228054.89509497603,
+   "semi_implicit_median": 198256.40102953988,
+   "speedup_vs_scalar": 66.90244133335553
+  },
+  {
+   "n": 10000,
+   "rk4": 74506.23785093683,
+   "rk4_median": 69189.91205540161,
+   "semi_implicit": 290113.8764694687,
+   "semi_implicit_median": 240469.24204993618,
+   "speedup_vs_scalar": 63.40900255544743
+  },
+  {
+   "n": 30000,
+   "rk4": 72215.86187564037,
+   "rk4_median": 57460.19282396273,
+   "semi_implicit": 292024.44256321166,
+   "semi_implicit_median": 218604.6552290959,
+   "speedup_vs_scalar": 61.45976366942197
+  },
+  {
+   "n": 100000,
+   "rk4": 83818.30324144242,
+   "rk4_median": 81389.0532991762,
+   "semi_implicit": 318405.7297814099,
+   "semi_implicit_median": 297236.19678249996,
+   "speedup_vs_scalar": 71.33409440244691
+  }
+ ]
+}

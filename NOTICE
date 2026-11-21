@@ -1,0 +1,23 @@
+wingbatch
+Copyright 2026 the wingbatch authors
+
+This product includes software derived from gz-sim (https://github.com/gazebosim/gz-sim), licensed under
+the Apache License, Version 2.0:
+  - src/systems/advanced_lift_drag/AdvancedLiftDrag.cc
+      Copyright (C) 2019 Open Source Robotics Foundation (authors: Karthik Srivatsan, Frederik Markus)
+  - src/systems/multicopter_motor_model/MulticopterMotorModel.cc
+      Copyright 2015 Fadri Furrer, Michael Burri, Mina Kamel, Janosch Nikolic, Markus Achtelik (ASL, ETH Zurich),
+      Copyright 2016 Geoffrey Hunter, Copyright (C) 2019 Open Source Robotics Foundation,
+      Copyright (C) 2022 Benjamin Perseghetti, Rudis Laboratories
+  - src/systems/joint_position_controller/JointPositionController.cc (parameters and defaults)
+      Copyright (C) 2020 Open Source Robotics Foundation, Copyright (C) 2023 Benjamin Perseghetti, Rudis Laboratories
+taken from branch gz-sim8 at commit f380a94e5755fc04d8cf509fa0d4541a20e4ceed and translated to NumPy
+(files src/wingbatch/systems/*.py and src/wingbatch/reference.py; each states its changes).
+
+This product bundles, unmodified, the files models/advanced_plane/model.sdf, model.config and
+models/LW20/model.sdf, model.config from PX4-gazebo-models (https://github.com/PX4/PX4-gazebo-models,
+commit e5997f455e33ec071c7c677fc59a65781de496a4), Copyright (c) 2022, PX4 Autopilot for Drones,
+licensed under the BSD 3-Clause License (src/wingbatch/models/LICENSE-PX4-gazebo-models).
+
+wingbatch is not affiliated with, nor endorsed by, the PX4 project, the Dronecode Foundation,
+Open Robotics, or the Gazebo project. "PX4" and "Gazebo" are used only to describe compatibility.

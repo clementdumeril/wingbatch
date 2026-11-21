@@ -1,0 +1,11 @@
+cpu Intel(R) Core(TM) i7-6700HQ CPU @ 2.60GHz | os Windows 10 | python 3.11.9 | numpy 2.2.6 | wingbatch 0.1.0 | best of 5
+scalar reference (plain Python, RK4): 1,175 aircraft-steps/s (0.85 ms/step)
+      N |  rk4 steps/s | x scalar |  ms/step | semi-implicit steps/s
+      1 |          210 |      0.2 |    4.771 |                   839
+     10 |        1,965 |      1.7 |    5.089 |                 7,613
+    100 |       17,208 |     14.6 |    5.811 |                42,889
+   1000 |       98,273 |     83.6 |   10.176 |               384,401
+   3000 |       78,611 |     66.9 |   38.163 |               228,055
+  10000 |       74,506 |     63.4 |  134.217 |               290,114
+  30000 |       72,216 |     61.5 |  415.421 |               292,024
+ 100000 |       83,818 |     71.3 | 1193.057 |               318,406

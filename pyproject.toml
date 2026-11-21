@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wingbatch"
+version = "0.1.0"
+description = "gz-sim's fixed-wing physics (AdvancedLiftDrag, MulticopterMotorModel, JointPositionController) read from an SDF model and run for N aircraft at once in NumPy. Not affiliated with PX4 or Open Robotics."
+readme = "README.md"
+license = {text = "Apache-2.0 AND BSD-3-Clause"}
+requires-python = ">=3.9"
+dependencies = ["numpy>=1.22"]
+keywords = ["fixed-wing", "flight dynamics", "gazebo", "sdf", "reinforcement learning", "vectorized", "px4"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Physics",
+    "License :: OSI Approved :: Apache Software License",
+    "License :: OSI Approved :: BSD License",
+]
+
+[project.optional-dependencies]
+gym = ["gymnasium>=1.0"]
+test = ["pytest>=7"]
+
+[project.urls]
+Source = "https://github.com/clementdumeril/wingbatch"
+
+[tool.setuptools]
+license-files = ["LICENSE", "NOTICE", "src/wingbatch/models/LICENSE-PX4-gazebo-models"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+wingbatch = ["models/*/model.sdf", "models/*/model.config", "models/LICENSE-PX4-gazebo-models", "models/README.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "tests"]

@@ -1,0 +1,32 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python: ["3.9", "3.11", "3.13"]
+        include:
+          - os: ubuntu-latest
+            python: "3.9"
+            numpy: "numpy==1.22.4"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install ".[test,gym]" ${{ matrix.numpy }}
+      - name: Tests
+        run: python -m pytest -q
+      - name: Quick benchmark (informative)
+        if: matrix.os == 'ubuntu-latest' && matrix.python == '3.11'
+        run: python benchmarks/throughput.py --quick
