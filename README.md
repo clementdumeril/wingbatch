@@ -117,10 +117,25 @@ What is **not** validated yet:
 ## Performance
 
 Aircraft-steps per second on **one CPU core**, the bundled advanced_plane trimmed at 12 m/s with small
-perturbations, `python benchmarks/throughput.py` (best of 5 trials; medians in
-[benchmarks/results](benchmarks/results)). Machine: Intel Core i7-6700HQ (2015 mobile CPU, 2.6 GHz), Windows 10,
-Python 3.11.9, NumPy 2.2.6, BLAS pinned to one thread. The machine was in use during the run: medians are 5 to 40 %
-lower, and a dedicated machine will do better.
+perturbations, `python benchmarks/throughput.py` (best of 5 trials, BLAS pinned to one thread; medians and raw
+output in [benchmarks/results](benchmarks/results)).
+
+**Idle desktop**: Intel Core i7-3770 (2012, 3.4 GHz), Ubuntu 26.04, Python 3.14.4, NumPy 2.5.4. Nothing else ran on
+the machine; medians are within 0.5 % of the best trials.
+
+| N aircraft | RK4, steps/s | vs. scalar loop | semi-implicit Euler, steps/s |
+|---:|---:|---:|---:|
+| 1 | 334 | 0.1x | 1,185 |
+| 10 | 3,176 | 1.1x | 11,267 |
+| 100 | 29,601 | 10x | 105,328 |
+| 1,000 | 154,095 | 52x | 569,679 |
+| 10,000 | 154,873 | 52x | 572,113 |
+| 100,000 | 157,389 | 53x | 575,835 |
+
+Scalar loop: 2,973 RK4 steps/s.
+
+**Busy laptop**: Intel Core i7-6700HQ (2015 mobile CPU, 2.6 GHz), Windows 10, Python 3.11.9, NumPy 2.2.6. The machine
+was in use during the run: medians are 5 to 40 % lower than these best trials.
 
 | N aircraft | RK4, steps/s | vs. scalar loop | semi-implicit Euler, steps/s |
 |---:|---:|---:|---:|
@@ -131,10 +146,14 @@ lower, and a dedicated machine will do better.
 | 10,000 | 74,506 | 63x | 290,114 |
 | 100,000 | 83,818 | 71x | 318,406 |
 
-The baseline is `wingbatch.reference.ScalarAircraft`, the same physics one aircraft at a time in plain Python:
-1,175 RK4 steps/s. In flight time: RK4 at 10 ms flies **about 750 to 1,000 aircraft-seconds per second** for
-N >= 1,000; the Gazebo-like stepping at 4 ms (gz-sim's step), about 1,200 to 1,500. For a single aircraft wingbatch
-is **slower** than the scalar loop (NumPy's per-call overhead): it is made for batches. Large batches are stepped in
+Scalar loop: 1,175 RK4 steps/s.
+
+The baseline is `wingbatch.reference.ScalarAircraft`, the same physics one aircraft at a time in plain Python. It
+gains more than the batched code from the faster, idle machine and the newer Python (2.5x against 1.6x to 1.9x),
+so the ratio to it varies between machines: about 50x to 85x for N >= 1,000. In flight time, on the idle desktop:
+RK4 at 10 ms flies **about 1,550 aircraft-seconds per second** for N >= 1,000; the Gazebo-like stepping at 4 ms
+(gz-sim's step), about 2,300. For a single aircraft wingbatch is **slower** than the scalar loop (NumPy's per-call
+overhead): it is made for batches. Large batches are stepped in
 blocks of 1,024 aircraft to stay in the CPU cache (`Aircraft(chunk=...)`). Not measured: the speed of gz-sim itself
 on the same model.
 

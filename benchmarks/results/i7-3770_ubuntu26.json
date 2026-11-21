@@ -1,0 +1,78 @@
+{
+ "machine": {
+  "cpu": "Intel(R) Core(TM) i7-3770 CPU @ 3.40GHz",
+  "os": "Linux 7.0.0-28-generic",
+  "python": "3.14.4",
+  "numpy": "2.5.4",
+  "wingbatch": "0.1.0"
+ },
+ "repeat": 5,
+ "scalar": 2972.916616494933,
+ "scalar_median": 2969.899443072078,
+ "rows": [
+  {
+   "n": 1,
+   "rk4": 333.5555142267276,
+   "rk4_median": 332.6006923337152,
+   "semi_implicit": 1185.0783478731466,
+   "semi_implicit_median": 1184.0606669066367,
+   "speedup_vs_scalar": 0.11219807255138874
+  },
+  {
+   "n": 10,
+   "rk4": 3175.6657344175987,
+   "rk4_median": 3173.304591656215,
+   "semi_implicit": 11267.183546817692,
+   "semi_implicit_median": 11252.412590091008,
+   "speedup_vs_scalar": 1.0681987233673937
+  },
+  {
+   "n": 100,
+   "rk4": 29601.498382696438,
+   "rk4_median": 29586.970530638144,
+   "semi_implicit": 105327.68852416494,
+   "semi_implicit_median": 105253.10927121885,
+   "speedup_vs_scalar": 9.957056386464208
+  },
+  {
+   "n": 1000,
+   "rk4": 154095.27503149616,
+   "rk4_median": 153504.49577687602,
+   "semi_implicit": 569678.9691978347,
+   "semi_implicit_median": 568516.5589105531,
+   "speedup_vs_scalar": 51.833029616947144
+  },
+  {
+   "n": 3000,
+   "rk4": 144810.5447075921,
+   "rk4_median": 144066.83554175918,
+   "semi_implicit": 564676.3462717665,
+   "semi_implicit_median": 564280.4143726879,
+   "speedup_vs_scalar": 48.70992476012451
+  },
+  {
+   "n": 10000,
+   "rk4": 154872.97380264,
+   "rk4_median": 154526.72318989265,
+   "semi_implicit": 572112.9353228706,
+   "semi_implicit_median": 571085.736644662,
+   "speedup_vs_scalar": 52.09462416246142
+  },
+  {
+   "n": 30000,
+   "rk4": 155373.44476542305,
+   "rk4_median": 155092.07873948323,
+   "semi_implicit": 571545.9643339392,
+   "semi_implicit_median": 569206.9344259771,
+   "speedup_vs_scalar": 52.262967586560926
+  },
+  {
+   "n": 100000,
+   "rk4": 157389.42858779442,
+   "rk4_median": 157239.71856793456,
+   "semi_implicit": 575835.0428200433,
+   "semi_implicit_median": 575671.0717138042,
+   "speedup_vs_scalar": 52.941084090463484
+  }
+ ]
+}

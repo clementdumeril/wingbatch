@@ -1,0 +1,11 @@
+cpu Intel(R) Core(TM) i7-3770 CPU @ 3.40GHz | os Linux 7.0.0-28-generic | python 3.14.4 | numpy 2.5.4 | wingbatch 0.1.0 | best of 5
+scalar reference (plain Python, RK4): 2,973 aircraft-steps/s (0.34 ms/step)
+      N |  rk4 steps/s | x scalar |  ms/step | semi-implicit steps/s
+      1 |          334 |      0.1 |    2.998 |                 1,185
+     10 |        3,176 |      1.1 |    3.149 |                11,267
+    100 |       29,601 |     10.0 |    3.378 |               105,328
+   1000 |      154,095 |     51.8 |    6.489 |               569,679
+   3000 |      144,811 |     48.7 |   20.717 |               564,676
+  10000 |      154,873 |     52.1 |   64.569 |               572,113
+  30000 |      155,373 |     52.3 |  193.083 |               571,546
+ 100000 |      157,389 |     52.9 |  635.367 |               575,835
